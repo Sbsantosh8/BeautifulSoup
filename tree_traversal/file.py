@@ -54,9 +54,40 @@ main_div = soup.find('div', id='main')
 # .parents – All ancestors, recursively.
 
 
-h1 = soup.find('h1')
-print(h1.parent.name)  # div
+# h1 = soup.find('h1')
+# print(h1.parent.name)  # div
 
 # All ancestors
 # for parent in h1.parents:
 #     print(parent.name)
+
+
+# ====================================================================
+
+# 3. Navigating Sideways (Siblings)
+# .next_sibling / .previous_sibling – Get the next/previous sibling (may include text or whitespace).
+
+# .next_siblings / .previous_siblings – Iterators over all siblings.
+
+
+subtitle = soup.find('p', class_='subtitle')
+
+# Next sibling (could be whitespace)
+# print(subtitle.next_sibling)
+
+# Iterate over all next siblings
+for sib in subtitle.next_siblings:
+    print(sib)
+
+
+
+# | Direction | Property            | Type      |
+# | --------- | ------------------- | --------- |
+# | Down      | `.contents`         | List      |
+# | Down      | `.children`         | Iterator  |
+# | Down      | `.descendants`      | Iterator  |
+# | Up        | `.parent`           | Tag       |
+# | Up        | `.parents`          | Generator |
+# | Side      | `.next_sibling`     | Tag/Text  |
+# | Side      | `.previous_sibling` | Tag/Text  |
+# | Side      | `.next_siblings`    | Iterator  |
