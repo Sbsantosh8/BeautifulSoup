@@ -23,30 +23,48 @@ soup = BeautifulSoup(res.text, "html.parser")
 
 # -------------------------------------------------
 
-# to select
+# to select (CSS Selector)
 
-print(soup.select())
+# print(soup.select())
 
 # 1. Select by Tag
 
-soup.select("p")
+# soup.select("p")
+
 # → [<p class="description">This is a test.</p>]
 # Example: select all <p> tags
 
 
 # 2. Select by Class
 
-soup.select(".link")
+# soup.select(".link")
+
 # → [<a class="link" ...>, <a class="link special" ...>]
 
 
 # 3. Select by ID
 
-soup.select("#title")
+# soup.select("#title")
+
 # → [<h1 id="title">Welcome</h1>]
 
 
 # 4. Descendant Selector
 
-soup.select("div.container a")
+# soup.select("div.container a")
+
 # → Selects all <a> inside <div class="container">
+
+
+# ------------------------------------------------------------
+
+# Extracts tag text
+
+# print(soup.get_text())
+
+# Returns a single string containing all the text from the document.
+
+# Ignores/Removes all HTML tags.
+
+
+
